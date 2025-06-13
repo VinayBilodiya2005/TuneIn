@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="description" content="TuneIn Music Player - Responsive, Dark Mode, Shuffle, Volume Control" />
+  <title>TuneIn Music Player</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&family=Varela+Round&display=swap" rel="stylesheet" />
+  <script>
+    // Apply theme early to avoid flash
+    if (localStorage.getItem('tuneInDarkMode') === 'true') {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <nav aria-label="Main Navigation">
+      <ul>
+        <li class="brand">
+          <img src="logo.jpg" alt="TuneIn logo" />
+          <span>TuneIn</span>
+        </li>
+        <li><a href="#" aria-current="page">Home</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="songList">
+      <h1>Best of NCS - No Copyright Sounds</h1>
+      <div class="songItemContainer" id="songList"></div>
+    </div>
+    <div class="songBanner" aria-hidden="true"></div>
+  </main>
+
+  <footer class="bottom">
+    <div class="progress-container">
+      <span id="currentTime" class="time">0:00</span>
+      <input type="range" id="myProgressBar" min="0" max="100" value="0"
+        aria-label="Song progress" />
+      <span id="duration" class="time">0:00</span>
+    </div>
+
+    <div class="bottom-controls">
+      <div class="icons">
+        <button class="control-btn" id="previous" aria-label="Previous song">
+          <i class="fa-solid fa-backward" aria-hidden="true"></i>
+        </button>
+        <button class="control-btn" id="masterPlay" aria-label="Play or pause">
+          <i class="fa-solid fa-circle-play" aria-hidden="true"></i>
+        </button>
+        <button class="control-btn" id="next" aria-label="Next song">
+          <i class="fa-solid fa-forward" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="controls">
+        <div class="volume-control">
+          <button class="control-btn" id="muteBtn" aria-label="Mute toggle">
+            <i class="fa-solid fa-volume-high" aria-hidden="true"></i>
+          </button>
+          <input type="range" id="volumeBar" min="0" max="100" value="50"
+            aria-label="Volume control" />
+        </div>
+        <button class="control-btn" id="shuffleBtn" aria-label="Shuffle mode" aria-pressed="false">
+          <i class="fa-solid fa-shuffle" aria-hidden="true"></i>
+        </button>
+        <button class="control-btn" id="themeToggle" aria-label="Theme toggle" aria-pressed="false">
+          <i class="fa-solid fa-moon" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="songInfo" aria-live="polite">
+      <img src="playing.gif" alt="Now playing" width="42" id="gif" aria-hidden="true" />
+      <span id="masterSongName">Select a song to play</span>
+    </div>
+  </footer>
+
+  <template id="songItemTemplate">
+    <div class="songItem" tabindex="0">
+      <img alt="Song cover" />
+      <span class="songName"></span>
+      <span class="songlistplay">
+        <span class="timestamp"></span>
+        <button class="play-btn" aria-label="Play song">
+          <i class="fa-solid fa-circle-play songItemPlay" aria-hidden="true"></i>
+        </button>
+      </span>
+    </div>
+  </template>
+
+  <script src="https://kit.fontawesome.com/6671581bd3.js" crossorigin="anonymous"></script>
+  <script src="script.js" defer></script>
+</body>
+</html>

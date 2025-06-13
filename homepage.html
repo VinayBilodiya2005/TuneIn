@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TuneIn - Your Music, Your Way</title>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&family=Varela+Round&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0f172a;
+      --secondary: #1e293b;
+      --accent: #38bdf8;
+      --light-text: #e0f2fe;
+      --muted-text: #94a3b8;
+      --btn-gradient-start: #06b6d4;
+      --btn-gradient-end: #3b82f6;
+      --highlight: #facc15;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Varela Round', sans-serif;
+      color: var(--light-text);
+      background-color: var(--primary);
+    }
+
+    header {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)), url('background.jpg') no-repeat center/cover;
+      color: var(--accent);
+      text-align: center;
+      padding: 7em 2em 5em;
+      position: relative;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 5px;
+      background: var(--highlight);
+      border-radius: 10px;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 0.5em;
+      animation: fadeInDown 1.2s ease-out;
+    }
+
+    header p {
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: 0 auto 2em;
+      color: var(--light-text);
+      animation: fadeInUp 1.5s ease-out;
+    }
+
+    .start-btn {
+      padding: 0.9em 2.5em;
+      font-size: 1.15rem;
+      background: linear-gradient(to right, var(--btn-gradient-start), var(--btn-gradient-end));
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 0 transparent;
+    }
+
+    .start-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 20px rgba(59,130,246,0.5);
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(30, 41, 59, 0.95);
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      padding: 1em;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    nav a {
+      color: var(--muted-text);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 5em 2em;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2.4rem;
+      margin-bottom: 1em;
+      color: var(--highlight);
+    }
+
+    section p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--light-text);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2em;
+      margin-top: 3em;
+    }
+
+    .feature {
+      background: var(--secondary);
+      padding: 2em;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature i {
+      font-size: 2.4rem;
+      color: var(--accent);
+      margin-bottom: 0.5em;
+    }
+
+    .screenshots img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin: 1.5em 0;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s;
+    }
+
+    .screenshots img:hover {
+      transform: scale(1.02);
+    }
+
+    .contact a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: var(--secondary);
+      color: var(--muted-text);
+      text-align: center;
+      padding: 2.5em 1em;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+      nav {
+        flex-direction: column;
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <header id="home">
+    <h1><i class="fa-solid fa-music"></i> Welcome to TuneIn</h1>
+    <p>Your personal music hub with intuitive design, smooth playback, and customization options — right in your browser.</p>
+    <a href="index.html"><button class="start-btn">Launch Player</button></a>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#screenshots">Screenshots</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About TuneIn</h2>
+    <p>TuneIn is a modern, fully-featured web-based music player. It features a dynamic UI, responsive design, dark/light themes, intuitive controls, keyboard shortcuts, and rich playback functionality. Designed for style and simplicity, TuneIn makes listening seamless and enjoyable across devices.</p>
+    <div class="features">
+      <div class="feature">
+        <i class="fa-solid fa-moon"></i>
+        <h3>Dark/Light Mode</h3>
+        <p>Personalize your experience with theme toggling based on preference or time of day.</p>
+      </div>
+      <div class="feature">
+        <i class="fa-solid fa-shuffle"></i>
+        <h3>Shuffle Playback</h3>
+        <p>Enjoy randomness and spontaneity with one-click shuffle for your playlist.</p>
+      </div>
+      <div class="feature">
+        <i class="fa-solid fa-headphones"></i>
+        <h3>Responsive & Accessible</h3>
+        <p>Keyboard-friendly and mobile-optimized to work beautifully on all devices.</p>
+      </div>
+      <div class="feature">
+        <i class="fa-solid fa-volume-high"></i>
+        <h3>Volume & Mute</h3>
+        <p>Fine-tune your listening volume or mute instantly with elegant controls.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="screenshots" class="screenshots">
+    <h2>Screenshots</h2>
+    <img src="screenshot1.jpg" alt="TuneIn Player Interface">
+    <img src="screenshot2.jpg" alt="TuneIn Dark Mode">
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Have questions or want to contribute? Reach out or explore the project online.</p>
+    <p>Email: <a href="mailto:yourname@example.com">yourname@example.com</a></p>
+    <p>GitHub: <a href="https://github.com/yourprofile" target="_blank">github.com/yourprofile</a></p>
+  </section>
+
+  <footer>
+    &copy; 2025 TuneIn. Crafted with <i class="fa-solid fa-heart"></i> and <i class="fa-solid fa-music"></i> by YourName.
+  </footer>
+</body>
+</html>
